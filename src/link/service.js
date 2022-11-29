@@ -11,7 +11,9 @@ const scopes = [
     'user-library-read',
     'playlist-modify-private',
     'playlist-modify-public',
-    'user-top-read'
+    'user-top-read',
+    'user-read-playback-state',
+    'user-modify-playback-state',
 ];
 const redirect_uri = 'http://localhost:3000/link/callback';
 

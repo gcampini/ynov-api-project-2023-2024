@@ -5,7 +5,7 @@ const swaggerAutogen = require('swagger-autogen')({
 const doc = {
     info: {
         title: 'YSpotify',
-        description: '....',
+        description: 'Service d’extensions de l’API Spotify',
     },
     host: 'localhost:3000',
     schemes: ['http'],
@@ -17,9 +17,9 @@ const doc = {
             description: 'Basic authentification (only needed for FT-1).',
         },
         jwt: {
-            "type": "http",
-            "scheme": "bearer",
-            "in": "header"
+            type: "http",
+            scheme: "bearer",
+            in: "header"
         }
     },
     security: [

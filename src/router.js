@@ -9,6 +9,7 @@ router.use('/group', require('./group/router'));
 router.use('/link', require('./link/router'));
 router.use('/personality', require('./personality/router'));
 router.use('/playlist', require('./playlist/router'));
+router.use('/synchronisation', require('./synchronisation/router'));
 
 router.use((err, req, res, next) => {
     if (err instanceof RefreshTokenExpiredError) {
@@ -23,7 +24,7 @@ router.use((err, req, res, next) => {
 router.use((err, req, res, next) => {
     if (err instanceof UserDoesNotExistError) {
         res.status(404).json({
-            message: "L'Utilisateur n'existe pas.",
+            message: `L'Utilisateur (${err.username}) n'existe pas.`,
             username: err.username,
         });
     } else {
@@ -31,7 +32,7 @@ router.use((err, req, res, next) => {
     }
 });
 
-router.use((err, req, res, next) => {
+router.use((err, req, res) => {
     console.error(err);
     res.status(500).send(err.stack);
 });

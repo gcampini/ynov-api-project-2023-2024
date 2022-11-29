@@ -4,6 +4,7 @@ const router = express.Router();
 const service = require('./service');
 
 router.get('/token', (req, res) => {
+    // #swagger.tags = ['Authentification et liaison']
     /* #swagger.security = [{
                "basic": []
         }] */
