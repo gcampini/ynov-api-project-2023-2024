@@ -5,6 +5,7 @@ WORKDIR /home/node/yspotify
 COPY package*.json ./
 COPY src ./src
 COPY secrets ./secrets
+RUN mkdir /home/node/yspotify/data # Create here for permissions
 
 RUN npm install --only=production
 
