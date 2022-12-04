@@ -7,7 +7,6 @@ const doc = {
         title: 'YSpotify',
         description: 'Service d’extensions de l’API Spotify',
     },
-    host: process.env.API_HOST ?? 'localhost:3000',
     schemes: ['http'],
     securityDefinitions: {
         basic: {

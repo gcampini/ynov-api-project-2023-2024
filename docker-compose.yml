@@ -6,9 +6,11 @@ services:
     container_name: yspotify
     restart: unless-stopped
     ports:
-      - "50000:3000"
+      - "50000:80"
     volumes:
       - yspotify:/home/node/data:rw
+    env_file:
+      - .env
 
 volumes:
   yspotify:
