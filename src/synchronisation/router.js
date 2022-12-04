@@ -25,6 +25,7 @@ router.get('/', bearer, linked, async (req, res, next) => {
         const members = groupService.members(req.user.group.name);
 
         let count = 0;
+        let errors = {};
         for (const member of members) {
             if (member.username === req.user.username) {
                 // skip the member who requested the synchronisation
@@ -35,6 +36,7 @@ router.get('/', bearer, linked, async (req, res, next) => {
                 count += 1;
             } catch (err) {
                 console.error("Synchronisation impossible pour l'utilisateur " + member.username, err.response.data);
+                errors[member.username] = err.response ? err.response.data.error.reason : err.message;
             }
         }
 
@@ -43,6 +45,7 @@ router.get('/', bearer, linked, async (req, res, next) => {
             progress: progress,
             count,
             message: `La synchronisation a été effectuée pour ${count} membre(s).`,
+            errors,
         });
     } catch (error) {
         next(error);
