@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  yspotify:
+    build: .
+    container_name: yspotify
+    restart: unless-stopped
+    ports:
+      - "50000:3000"
+    volumes:
+      - yspotify:/home/node/data:rw
+
+volumes:
+  yspotify:
+    name: yspotify
+    driver: local
