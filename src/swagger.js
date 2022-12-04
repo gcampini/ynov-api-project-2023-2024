@@ -8,7 +8,7 @@ const doc = {
         description: 'Service d’extensions de l’API Spotify',
     },
     host: process.env.API_HOST ?? 'localhost:3000',
-    schemes: ['http'],
+    schemes: [process.env.API_SCHEME ?? 'http'],
     securityDefinitions: {
         basic: {
             type: 'http',
