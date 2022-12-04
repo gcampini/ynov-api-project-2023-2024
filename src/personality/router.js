@@ -7,8 +7,8 @@ const router = express.Router();
 router.get('/', bearer, linked, async (req, res, next) => {
     // #swagger.tags = ['Extensions Spotify (FT-6, FT-7, FT-8)']
     try {
-        const ids = await service.tracks(req.user.sub);
-        const features = await service.audioFeatures(req.user.sub, ids);
+        const ids = await service.tracks(req.user.username);
+        const features = await service.audioFeatures(req.user.username, ids);
 
         const length = features.length;
 

@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.patch('/:name/members', bearer, (req, res) => {
     // #swagger.tags = ['Utilisateurs et Groupes']
-    service.join(req.params.name, req.user.sub);
+    service.join(req.params.name, req.user.username);
     res.status(204).end();
 });
 

@@ -16,6 +16,5 @@ module.exports.bearer = function bearer(req, res, next) {
     }
     const payload = jwt.verify(token, key);
     req.user = repository.get(payload.sub);
-    req.user.sub = payload.sub;
     next();
 }

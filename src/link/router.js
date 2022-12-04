@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/auth-url', bearer, (req, res) => {
     // #swagger.tags = ['Authentification et liaison']
-    const url = service.url(req.user.sub);
+    const url = service.url(req.user.username);
     res.json(url);
 });
 
