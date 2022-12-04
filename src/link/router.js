@@ -10,14 +10,16 @@ router.get('/auth-url', bearer, (req, res) => {
     res.json(url);
 });
 
-router.get('/callback', (req, res) => {
+router.get('/callback', async (req, res, next) => {
     // #swagger.ignore = true
-    service.link(req.query.code, req.query.state)
-        .then(() => res.redirect('/'))
-        .catch(err => {
-            console.error(err);
-            res.status(500).end();
+    try {
+        await service.link(req.query.code, req.query.state);
+        res.json({
+            message: "Liaison réussie ! Vous pouvez fermer cette fenêtre.",
         });
+    } catch (e) {
+        next(e);
+    }
 });
 
 module.exports = router;
