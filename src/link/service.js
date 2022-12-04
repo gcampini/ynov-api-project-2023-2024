@@ -15,7 +15,7 @@ const scopes = [
     'user-read-playback-state',
     'user-modify-playback-state',
 ];
-const redirect_uri = 'http://localhost:3000/link/callback';
+const redirect_uri = `${process.env.API_SCHEME ?? 'http'}://${process.env.API_HOST ?? 'localhost:3000'}/link/callback`;
 
 /**
  * TODO
