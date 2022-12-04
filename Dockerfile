@@ -7,7 +7,7 @@ COPY src ./src
 COPY secrets ./secrets
 RUN mkdir /home/node/yspotify/data # Create here for permissions
 
-RUN npm install --only=production
+RUN npm install --omit=dev
 
 RUN chown -R node:node /home/node/yspotify
 
