@@ -26,7 +26,7 @@ router.post('/best', bearer, linked, async (req, res, next) => {
             return;
         }
 
-        await playlistService.createTop10BestTracksPlaylist(req.user.sub, targetUsername);
+        await playlistService.createTop10BestTracksPlaylist(req.user.username, targetUsername);
         res.status(200).end();
     } catch (e) {
         next(e);
