@@ -33,7 +33,7 @@ module.exports.join = function (groupName, username) {
  * @returns {Array}
  */
 module.exports.members = function (groupName) {
-    return repository.users.filter(user => user.group.name === groupName);
+    return repository.users.filter(user => user.group?.name === groupName);
 }
 
 module.exports.list = function () {
